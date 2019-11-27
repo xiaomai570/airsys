@@ -171,7 +171,56 @@ function buy(obj){
 	div.appendChild(submit);
 	document.body.appendChild(div);
 }
+function buy1(obj){
+	var id =$(obj).parents("tr").attr("id");
+	console.log(id);
 
+	var div = document.createElement("div");
+	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:50%;right:0;bottom:0;margin:auto";
+	var div1 = document.createElement("div");
+	div1.innerHTML="请选择舱位"
+	div1.style.cssText="width:100%;height:50px;font-size:30px;margin-top:50px";
+	div.appendChild(div1);
+	
+	/*var form = document.createElement("form");
+	$(form).attr("action","#");
+	$(form).attr("method","post");*/
+	
+	var select = document.createElement("select");
+	$(select).attr("name","cang");
+	$(select).attr("id",id);
+	select.style.cssText="width:300px;height:50px;font-size:30px;margin-left:100px;margin-top:20px";
+	
+	var option1 = document.createElement("option");
+	$(option1).attr("value",1);
+	$(option1).attr("selected","selected");
+	$(option1).html("头等舱");
+	
+	var option2 = document.createElement("option");
+	$(option2).attr("value",2);
+	$(option2).html("商务舱");
+	
+	var option3 = document.createElement("option");
+	$(option3).attr("value",3);
+	$(option3).html("经济舱");
+	
+	select.appendChild(option1);
+	select.appendChild(option2);
+	select.appendChild(option3);
+	
+	var submit = document.createElement("button");
+	$(submit).attr("class","gaiqian3");
+	$(submit).attr("onClick","gaiqian3()");
+	$(submit).html("购买");
+	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:200px";
+	
+	/*form.appendChild(select);
+	form.appendChild(submit);*/
+	
+	div.appendChild(select);
+	div.appendChild(submit);
+	document.body.appendChild(div);
+}
 function order(){
 	var  cang = $("option:selected").attr("value");
 	console.log(cang);
@@ -180,18 +229,64 @@ function order(){
 	var flightId = $("select").attr("id");
 	console.log(flightId);
 	
-	var data = {"flightId":flightId,"card":card,"cang":cang};
+//	var data = {"flightId":flightId,"card":card,"cang":cang};
 	
 	$.ajax({
-		url:"order",
-		dataType:"json",
-		type:"post",
-		contentType:"application/json;charset=utf-8",
-		data:JSON.stringify(data), 
+		url:"/airsys/insert1",
+	//	dataType:"json",
+	//	type:"post",
+	//	contentType:"application/json;charset=utf-8",
+	//	data:JSON.stringify(data), 
+		data:{
+			flightNumber:flightId,
+			idCard:card,
+			grade:cang
+		},
 		success:function(e){
-			console.log(e);
-		}
+			console.log(e)
+			var result=e.replace(/\s/g, "");
+			
+			if(result=="ok"){
+				alert("买票成功")
+			}else{
+				alert("买票失败")
+			}
+	  }
+		
 	});
+}
+
+function tuipiao(obj){
+	var id_card = $(".hidden").attr("card");
+	var flight_id =$(obj).parents("tr").find(".flight_number").html();
+	console.log(id_card);
+	console.log(flight_id);
+	
+//	var data = {"id_card":id_card,"flight_id":flight_id};
+	$.ajax({
+		url:"/airsys/TuiOrder",
+	//	type:"post",
+	//	dataType:"json",
+	//	contentType:"application/json;charset=utf-8",
+	//	data: JSON.stringify(data),
+		
+		data:{
+			flightNumber:flight_id,
+			IdCard:id_card
+		},
+		success:function(e){
+			console.log(e)
+			var result=e.replace(/\s/g, "");
+			
+			if(result=="ok"){
+				alert("退票成功");
+				window.location.herf=window.location.href;
+			}else{
+				alert("退票失败")
+			}
+		}
+		
+	})
 }
 
 function seeOrder(){ 
@@ -217,7 +312,7 @@ function seeOrder(){
 				td += "<td class='order flight_number'>"+e[i].flight_number+"</td>";
 				td += "<td class='order'>"+e[i].passenger_name+"</td>";
 				td += "<td class='order order_date'>"+e[i].order_date+"</td>";
-				td += "<td class='order'>"+e[i].grade+"</td>";
+				td += "<td class='order grade'>"+e[i].grade+"</td>";
 				td += "<td class='order'>"+e[i].passenger_type+"</td>";
 				td += "<td class='order'>"+e[i].branch_id+"</td>";
 				td += "<td class='order'>"+e[i].sales_id+"</td>";
@@ -269,13 +364,52 @@ function gaiqian(obj){
         			td+="<td class='tdy23'>"+e[i].business_price+"</td>";
         			td+="<td class='tdy24'>"+e[i].economy_price+"</td>";
             		td+=`<td class='tdy25'>
-        				<button class="buybtn" onClick="buy(this)">改签</button>
+        				<button class="gaiqian2" onClick="buy1(this)">改签</button>
         				</td>`;
         			tr.innerHTML=td;
         			$(".table3 tbody").append(tr);
         	}
         }
 	})
+}
+function gaiqian3(obj){
+
+	var old_fNumber = $(".gaiqian").parents("tr").children(".flight_number").html();
+	console.log(old_fNumber);
+	var new_fNumber = $(".gaiqian2").parents("tr").attr("id");
+	console.log(new_fNumber);
+	var old_grade = $(".gaiqian").parents("tr").children(".grade").html();
+	console.log("旧舱位是："+old_grade);
+	var new_grade = $("option:selected").val();
+	console.log("新的舱位是："+new_grade);
+	var id_card = $(".hidden").attr("card");
+	console.log(id_card);
 	
+	//var data = {"old_fNumber":old_fNumber,"new_fNumber":new_fNumber,"old_grade":old_grade,"new_grade":new_grade,"id_card":id_card}
+	$.ajax({
+		url:"/airsys/updateTicket1",
+		//type:"post",
+	//	dataType:"json",
+	//	contentType:"application/json;charset=utf-8",
+		data:{
+			flightNumber:old_fNumber,
+			grade:old_grade,
+			idCard:id_card,
+			flightNumber1:new_fNumber,
+			grade1:new_grade
+		},
+		success:function(e){
+			console.log(e)
+			var result=e.replace(/\s/g, "");
+			
+			if(result=="ok"){
+				alert("改签成功");
+				window.location.herf=window.location.href;
+			}else{
+				alert("改签失败")
+			}
+		}
+		
+	})
 }
 

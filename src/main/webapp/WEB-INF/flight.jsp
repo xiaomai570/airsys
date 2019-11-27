@@ -33,8 +33,8 @@
 					<td>${flight.first_price}</td>
 					<td>${flight.business_price}</td>
 					<td>${flight.economy_price}</td>
-					<td><a href="#" onclick="findflight(${flight.flight_number})">详细信息</a>
-						<a href="#" onclick="deleteflight(${flight.flight_number})">删除</a>
+					<td><a href="#" onclick="findflight('${flight.flight_number}')">详细信息</a>
+						<a href="#" onclick="deleteflight('${flight.flight_number}')">删除</a>
 					</td>
 				</tr>
 			</c:forEach>

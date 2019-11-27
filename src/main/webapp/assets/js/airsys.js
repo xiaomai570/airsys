@@ -125,6 +125,7 @@ function updatecustomer(customer){
 	$(".c_password").val(customer[0].c_password);
 	$(".age").val(customer[0].age);
 	$(".id_card").val(customer[0].id_card);
+	$(".phone").val(customer[0].phone);
 }
 
 function findflight(flight_number){

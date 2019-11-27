@@ -65,7 +65,7 @@ form {
 			</div>
 		</div>
 		<div class="bottom">
-			<form class="layui-form" action="/air_system/UpdateOrder">
+			<form class="layui-form" action="/airsys/UpdateOrder">
 				<div class="layui-form-item">
 					<label class="layui-form-label">请输身份证</label>
 					<div class="layui-input-block">
@@ -81,7 +81,7 @@ form {
 			</form>
 		</div>
 	</div>
-	<script src="/air_system/assets/layui/layui.js" charset="utf-8"></script>
+	<script src="/airsys/assets/layui/layui.js" charset="utf-8"></script>
 	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 	<script>
 		layui

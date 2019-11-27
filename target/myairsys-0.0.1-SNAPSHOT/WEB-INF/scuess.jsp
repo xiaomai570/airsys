@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>信息页面</title>
-<link href="/airsystem/asset/css/_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
-<link href="/airsystem/asset/css/_css/main.css" rel="stylesheet" type="text/css" />
+<link href="/airsys/asset/css/_css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+<link href="/airsys/asset/css/_css/main.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="/airsystem/asset/js/_scripts/jquery-2.0.2.min.js"></script>
-<script type="text/javascript" src="/airsystem/asset/js/_scripts/main.js"></script>
+<script type="text/javascript" src="/airsys/asset/js/_scripts/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="/airsys/asset/js/_scripts/main.js"></script>
 
 <style>
 #loading{

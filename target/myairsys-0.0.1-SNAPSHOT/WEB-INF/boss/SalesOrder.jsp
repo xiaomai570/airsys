@@ -17,6 +17,7 @@
   <script src ="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"> </script>
 <script src ="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"> </script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script src="/airsys/assets/js/echarts.min.js"></script>
 </head>
 <body>
      <table class="table table-striped">
@@ -32,14 +33,75 @@
       <tr>      
          <td class="jobId">${sale.jobId}</td>
          <td>${sale.sName}</td>
-         <td>${sale.branchId}</td>
+         <td class="branchId">${sale.branchId}</td>
          <td>${sale.salesOrder}</td>
          <td><button class="button">查看售票记录</button></td>
           
          </tr>
       </c:forEach>
      </table>      
-
+<div style="width: 600px; height: 400px; float: left; margin-top: 7%; margin-left: 10%;">
+		<div >当月售票量</div>
+		<div id="main" style="width: 600px; height: 400px;"></div>
+</div>
+<script>
+		// 基于准备好的dom，初始化echarts实例
+		window.onload= function(){
+		var myChart = echarts.init(document.getElementById('main'));
+		window.test = null;
+		window.b = null;
+		var branchId=$(".branchId").html();
+		
+		$.ajax({
+			url : "/airsys/SalesOrderI",			
+			dataType : "json",
+			data:{
+				branchId:branchId
+			},
+			success : function(e) {
+				console.log(e.x);
+				console.log(e.y);
+				var data1 = e.x;
+				var data2 = e.y;
+				// 指定图表的配置项和数据
+				var option = {
+					color : [ '#97FFFF' ],
+					tooltip : {
+						trigger : 'axis',
+						axisPointer : { // 坐标轴指示器，坐标轴触发有效
+							type : 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+						}
+					},
+					grid : {
+						left : '3%',
+						right : '4%',
+						bottom : '3%',
+						containLabel : true
+					},
+					xAxis : [
+					{
+						type : 'category',
+					    data : data1,
+						axisTick : {
+							alignWithLabel : true
+						} 
+					} ],
+					yAxis : [ {
+						type : 'value'
+					} ],
+					series : [ {
+						name : '直接访问',
+						type : 'bar',
+						barWidth : '60%',
+						data : data2,
+					} ]
+				};
+				myChart.setOption(option);
+				// 使用刚指定的配置项和数据显示图表。   
+				}
+		})
+		}		
+	</script>
 <script type="text/javascript">
          var btn=document.querySelector(".button"); 
          btn.onclick=function(){
@@ -51,13 +113,6 @@
 
 </script>
 </body>
-
-
-
-
-
-
-
 
 
 
