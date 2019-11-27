@@ -458,12 +458,12 @@ public class SysController {
 				.getRequest();
 		session = request.getSession();
 
-		try {
+		/*try {
 			c_number = new String(c_number.getBytes("iso8859-1"), "utf-8");
 			c_password = new String(c_password.getBytes("iso8859-1"), "utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-		}
+		}*/
 		cusli = cusliService.login(c_number, c_password);
 		if (cusli != null) {
 			ModelAndView mv = new ModelAndView("loginSuccess");

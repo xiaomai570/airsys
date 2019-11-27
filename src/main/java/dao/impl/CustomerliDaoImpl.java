@@ -34,6 +34,8 @@ public class CustomerliDaoImpl implements ICustomerliDao{
 
 	@Override
 	public Customerli find(String c_number, String c_password) {
+		System.out.println("用户名："+c_number);
+		System.out.println("密码："+c_password);
 		Customerli cus = jdbcTemplate.queryForObject("select * from customer where c_number=? and c_password=?", new Object[] {c_number,c_password},
 				new BeanPropertyRowMapper<>(Customerli.class));
 		return cus;
