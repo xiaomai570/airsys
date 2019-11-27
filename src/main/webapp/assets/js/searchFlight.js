@@ -1,6 +1,6 @@
 window.onload=function(){
 	var search = document.querySelector(".searchbtn");
-	var table = document.querySelector(".table1 tbody");
+	var searchFlight = document.querySelector(".searchFlight-in");
 	
 
 	search.onclick=function(){
@@ -9,104 +9,139 @@ window.onload=function(){
 		var to_city = $(".to_city").val();
 		var start_date = $(".start_date").val();
 		
-		console.log(from_city);
-		console.log(to_city);
-		console.log(start_date);
-		
-		
+		console.log(from_city);console.log(to_city);console.log(start_date);
 		
 		var data = {"from_city":from_city,"to_city":to_city,"start_date":start_date};
-		console.log(data);
 		$.ajax({  
 			url: "/airsys/searchFlight",  
 			dataType:"json",
             type: "post",  
-           contentType:"application/json;charset=utf-8",
+            contentType:"application/json;charset=utf-8",
             data:JSON.stringify(data), 
             success: function(e){
-            	
             	$(".from_city").val(null);
             	$(".to_city").val(null);
             	$(".start_date").val(null);
-            	console.log(e);
-            	console.log(e.length);
+            	// console.log(e);
+            	// console.log(e.length);
             	for (var i = 0; i < e.length; i++) {
-            		var tr = document.createElement("tr");
-            		$(tr).attr("class","result");
-            		$(tr).attr("id",e[i].flight_number);
-            		var td = "";
-            		if((typeof e[i].from_city) == "undefined"){
-        				td+="<td> class='tdx1'"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx1'>"+e[i].from_city+"</td>";
-        			}
-            		if((typeof e[i].to_city) == "undefined"){
-        				td+="<td class='tdx2'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx2'>"+e[i].to_city+"</td>";
-        			}
-            		if((typeof e[i].departure_time) == "undefined"){
-        				td+="<td class='tdx3'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx3'>"+time(e[i].departure_time)+"</td>";
-        			}
-            		if((typeof e[i].arrival_time) == "undefined"){
-        				td+="<td class='tdx4'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx4'>"+time(e[i].arrival_time)+"</td>";
-        			}
-            		if((typeof e[i].start_airplane) == "undefined"){
-        				td+="<td class='tdx5'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx5'>"+e[i].start_airplane+"</td>";
-        			}
-            		if((typeof e[i].end_airplane) == "undefined"){
-        				td+="<td class='tdx6'"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdx6'>"+e[i].end_airplane+"</td>";
-        			}
-            		if((typeof e[i].first_class_remain_seats) == "undefined"){
-        				td+="<td class='tdy7'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy7'>"+e[i].first_class_remain_seats+"</td>";
-        			}
-            		if((typeof e[i].business_class_remain_seats) == "undefined"){
-        				td+="<td class='tdy8'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy8'>"+e[i].business_class_remain_seats+"</td>";
-        			}
-            		if((typeof e[i].economy_class_remain_seats) == "undefined"){
-        				td+="<td class='tdy9'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy9'>"+e[i].economy_class_remain_seats+"</td>";
-        			}
-            		if((typeof e[i].first_price) == "undefined"){
-        				td+="<td class='tdy10'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy10'>"+e[i].first_price+"</td>";
-        			}
-            		if((typeof e[i].business_price) == "undefined"){
-        				td+="<td class='tdy11'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy11'>"+e[i].business_price+"</td>";
-        			}
-            		if((typeof e[i].economy_price) == "undefined"){
-        				td+="<td class='tdy12'>"+"Null"+"</td>";
-        			}else{
-        				td+="<td class='tdy12'>"+e[i].economy_price+"</td>";
-        			}
-            		td+=`<td class='tdy13'>
-        				<button class="buybtn" onClick="buy(this)">购买</button>
-        				</td>`;
-        			tr.innerHTML=td;
-        			table.appendChild(tr)
+            		var piao = document.createElement("div");
+            		$(piao).attr("class","result");
+            		$(piao).attr("id",e[i].flight_number);
+                	var xiangqing = JSON.stringify(e[i]);
+                	console.log("所有的数据"+xiangqing);
+            		var inner = "";
+            		inner+="<div style='width:800px;height:50px;margin:auto;margin-top:10px;border:1px solid red;position:relative;'>"+
+            			"<div style='width:100px;height:50px;float:left;text-align:center;font-size:22px;line-height:50px;'>"+e[i].start_airplane+"</div>"+
+            			"<div style='width:100px;height:30px;float:left;left:350px;top:0;text-align:center;font-size:18px;position:absolute;line-height:30px;'>"+e[i].flight_number+"</div>"+
+            			"<div style='width:600px;height:15px;float:left;left:100px;bottom:0;position:absolute;border-top:2px solid black;'></div>"+
+            			"<div style='width:100px;height:50px;float:right;text-align:center;font-size:22px;line-height:50px;'>"+e[i].end_airplane+"</div>"+
+            			"<button class='buybtn' onClick='buy(this)' style='float:left;left:480px;top:5px;position:absolute;'>购买</button>"+
+            			"<button class='xiangqing' onClick='xiangqing("+xiangqing+")' style='float:left;left:290px;top:5px;position:absolute;'>详情</button>"+
+            			"</div>";
+            		piao.innerHTML = inner;
+            		searchFlight.appendChild(piao);
             	}
-            	
             }  
          });  
 	}
-
+}
+function xiangqing(e){
+	var div = document.createElement("div");
+	$(div).attr("class","xiangxi");
+	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:55%;right:0;bottom:0;margin:auto";
 	
+	var div0 = document.createElement("div");
+	div0.innerHTML="头等舱票数";
+	div0.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div1 = document.createElement("div");
+	div1.innerHTML=e.first_class_remain_seats;
+	div1.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div2 = document.createElement("div");
+	div2.innerHTML="商务舱票数";
+	div2.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div3 = document.createElement("div");
+	div3.innerHTML=e.business_class_remain_seats;
+	div3.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div4 = document.createElement("div");
+	div4.innerHTML="经济舱票数";
+	div4.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div5 = document.createElement("div");
+	div5.innerHTML=e.economy_class_remain_seats;
+	div5.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div6 = document.createElement("div");
+	div6.innerHTML="头等舱价格";
+	div6.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div7 = document.createElement("div");
+	div7.innerHTML=e.first_price;
+	div7.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div8 = document.createElement("div");
+	div8.innerHTML="商务舱价格";
+	div8.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div9 = document.createElement("div");
+	div9.innerHTML=e.business_price;
+	div9.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div10 = document.createElement("div");
+	div10.innerHTML="经济舱价格";
+	div10.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div11 = document.createElement("div");
+	div11.innerHTML=e.economy_price;
+	div11.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div12 = document.createElement("div");
+	div12.innerHTML="出发时间";
+	div12.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div13 = document.createElement("div");
+	div13.innerHTML=time(e.departure_time);
+	div13.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div14 = document.createElement("div");
+	div14.innerHTML="到达时间";
+	div14.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var div15 = document.createElement("div");
+	div15.innerHTML=time(e.departure_time);
+	div15.style.cssText="width:100%;height:20px;font-size:16px;";
+	
+	var exit = document.createElement("button");
+	$(exit).attr("class","exit3");
+	$(exit).attr("onClick","exit3()");
+	$(exit).html("返回");
+	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:200px";
+	
+	div.appendChild(div0);
+	div.appendChild(div1);
+	div.appendChild(div2);
+	div.appendChild(div3);
+	div.appendChild(div4);
+	div.appendChild(div5);
+	div.appendChild(div6);
+	div.appendChild(div7);
+	div.appendChild(div8);
+	div.appendChild(div9);
+	div.appendChild(div10);
+	div.appendChild(div11);
+	div.appendChild(div12);
+	div.appendChild(div13);
+	div.appendChild(div14);
+	div.appendChild(div15);
+	div.appendChild(exit);
+	document.body.appendChild(div);
+}
+function exit3(){
+	$(".xiangxi").css({"display":"none"});
 }
 function time(sj)
 {
@@ -122,19 +157,21 @@ function time(sj)
 }
 
 function buy(obj){
-	var id =$(obj).parents("tr").attr("id");
+	var id =$(obj).parents(".result").attr("id");
 	console.log(id);
 
 	var div = document.createElement("div");
-	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:50%;right:0;bottom:0;margin:auto";
+	$(div).attr("class","buy");
+	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:55%;right:0;bottom:0;margin:auto";
 	var div1 = document.createElement("div");
 	div1.innerHTML="请选择舱位"
 	div1.style.cssText="width:100%;height:50px;font-size:30px;margin-top:50px";
 	div.appendChild(div1);
 	
-	/*var form = document.createElement("form");
-	$(form).attr("action","#");
-	$(form).attr("method","post");*/
+	/*
+	 * var form = document.createElement("form"); $(form).attr("action","#");
+	 * $(form).attr("method","post");
+	 */
 	
 	var select = document.createElement("select");
 	$(select).attr("name","cang");
@@ -162,29 +199,41 @@ function buy(obj){
 	$(submit).attr("class","buy");
 	$(submit).attr("onClick","order()");
 	$(submit).html("购买");
-	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:200px";
+	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:50px";
 	
-	/*form.appendChild(select);
-	form.appendChild(submit);*/
+	var exit = document.createElement("button");
+	$(exit).attr("class","exit1");
+	$(exit).attr("onClick","exit1()");
+	$(exit).html("退出");
+	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:300px";
+	/*
+	 * form.appendChild(select); form.appendChild(submit);
+	 */
 	
 	div.appendChild(select);
 	div.appendChild(submit);
+	div.appendChild(exit);
 	document.body.appendChild(div);
+}
+function exit1(){
+	$(".buy").css({"display":"none"});
 }
 function buy1(obj){
 	var id =$(obj).parents("tr").attr("id");
 	console.log(id);
 
 	var div = document.createElement("div");
-	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:50%;right:0;bottom:0;margin:auto";
+	$(div).attr("class","buy1");
+	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:55%;right:0;bottom:0;margin:auto";
 	var div1 = document.createElement("div");
 	div1.innerHTML="请选择舱位"
 	div1.style.cssText="width:100%;height:50px;font-size:30px;margin-top:50px";
 	div.appendChild(div1);
 	
-	/*var form = document.createElement("form");
-	$(form).attr("action","#");
-	$(form).attr("method","post");*/
+	/*
+	 * var form = document.createElement("form"); $(form).attr("action","#");
+	 * $(form).attr("method","post");
+	 */
 	
 	var select = document.createElement("select");
 	$(select).attr("name","cang");
@@ -212,14 +261,24 @@ function buy1(obj){
 	$(submit).attr("class","gaiqian3");
 	$(submit).attr("onClick","gaiqian3()");
 	$(submit).html("购买");
-	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:200px";
+	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:50px";
 	
-	/*form.appendChild(select);
-	form.appendChild(submit);*/
+	var exit = document.createElement("button");
+	$(exit).attr("class","exit2");
+	$(exit).attr("onClick","exit2()");
+	$(exit).html("退出");
+	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:300px";
+	/*
+	 * form.appendChild(select); form.appendChild(submit);
+	 */
 	
 	div.appendChild(select);
 	div.appendChild(submit);
+	div.appendChild(exit2);
 	document.body.appendChild(div);
+}
+function exit2(){
+	$(".buy1").css({"display":"none"});
 }
 function order(){
 	var  cang = $("option:selected").attr("value");
@@ -229,14 +288,14 @@ function order(){
 	var flightId = $("select").attr("id");
 	console.log(flightId);
 	
-//	var data = {"flightId":flightId,"card":card,"cang":cang};
+// var data = {"flightId":flightId,"card":card,"cang":cang};
 	
 	$.ajax({
 		url:"/airsys/insert1",
-	//	dataType:"json",
-	//	type:"post",
-	//	contentType:"application/json;charset=utf-8",
-	//	data:JSON.stringify(data), 
+	// dataType:"json",
+	// type:"post",
+	// contentType:"application/json;charset=utf-8",
+	// data:JSON.stringify(data),
 		data:{
 			flightNumber:flightId,
 			idCard:card,
@@ -262,13 +321,13 @@ function tuipiao(obj){
 	console.log(id_card);
 	console.log(flight_id);
 	
-//	var data = {"id_card":id_card,"flight_id":flight_id};
+// var data = {"id_card":id_card,"flight_id":flight_id};
 	$.ajax({
 		url:"/airsys/TuiOrder",
-	//	type:"post",
-	//	dataType:"json",
-	//	contentType:"application/json;charset=utf-8",
-	//	data: JSON.stringify(data),
+	// type:"post",
+	// dataType:"json",
+	// contentType:"application/json;charset=utf-8",
+	// data: JSON.stringify(data),
 		
 		data:{
 			flightNumber:flight_id,
@@ -330,7 +389,7 @@ function seeOrder(){
 }
 
 function gaiqian(obj){
-	//航班id
+	// 航班id
 	var flight_number = $(obj).parents("tr").find(".flight_number").html();
 	var order_date = $(obj).parents("tr").find(".order_date").html();
 	console.log(order_date);
@@ -385,12 +444,13 @@ function gaiqian3(obj){
 	var id_card = $(".hidden").attr("card");
 	console.log(id_card);
 	
-	//var data = {"old_fNumber":old_fNumber,"new_fNumber":new_fNumber,"old_grade":old_grade,"new_grade":new_grade,"id_card":id_card}
+	// var data =
+	// {"old_fNumber":old_fNumber,"new_fNumber":new_fNumber,"old_grade":old_grade,"new_grade":new_grade,"id_card":id_card}
 	$.ajax({
 		url:"/airsys/updateTicket1",
-		//type:"post",
-	//	dataType:"json",
-	//	contentType:"application/json;charset=utf-8",
+		// type:"post",
+	// dataType:"json",
+	// contentType:"application/json;charset=utf-8",
 		data:{
 			flightNumber:old_fNumber,
 			grade:old_grade,

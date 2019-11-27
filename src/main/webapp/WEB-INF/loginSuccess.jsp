@@ -48,35 +48,9 @@
 							name="start_date">
 						<button class="searchbtn">搜索</button>
 					</div>
-					<div>
-					</div>
-					<div class="flight">
-						<div class="box">
-							<div class="d1">地点</div>
-							<div class="d2">时间</div>
-							<div class="d3">机场</div>
-							<div class="d4">剩余票数</div>
-							<div class="d5">价格</div>
-							<div class="d6">操作</div>
-							<table class="table1">
-								<tr>
-									<td class="td">出发地</td>
-									<td class="td">目的地</td>
-									<td class="td">出发时间</td>
-									<td class="td">到达时间</td>
-									<td class="td">出发地机场</td>
-									<td class="td">到达地机场</td>
-									<td class="td">头等舱</td>
-									<td class="td">商务舱</td>
-									<td class="td">经济舱</td>
-									<td class="td">头等舱</td>
-									<td class="td">商务舱</td>
-									<td class="td">经济舱</td>
-									<td class="td1"></td>
-								</tr>
-							</table>
-						</div>
-
+					<div class="searchFlight-in">
+						<div class="d1">查询结果</div>
+						
 					</div>
 				</div>
 			</div>
@@ -126,9 +100,8 @@
 						value=<%=c_number%> name="c_number"> <label class="l6">密码</label>
 					<input class="c_password" type="text" value=<%=c_password%>
 						name="c_password"> <label class="l7">电话</label> <input
-						class="phone" type="text" value=<%=phone%> name="phone">
-
-					<input type="submit" class="modify" value="修改">
+						class="phone" type="text" value=<%=phone%> name="phone"> <input
+						type="submit" class="modify" value="修改">
 				</form>
 			</div>
 		</div>
