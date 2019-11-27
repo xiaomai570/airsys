@@ -7,47 +7,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="assets/layui/css/layui.css">
 <link rel="stylesheet" href="assets/css/index.css">
-<script type="text/javascript" src="assets/layui/layui.js "></script>
-
+<link rel="stylesheet" href="assets/css/cityselect.css">
 <script src="assets/js/index.js"></script>
+<script src="assets/js/cityselect.js"></script>
 <title>花季少女</title>
 </head>
 <body>
-	<div class="layui-carousel" id="test1">
-		<div carousel-item>
-			<div>
-				<img src="assets/img/lunbo1.jpg">
-			</div>
-			<div>
-				<img src="assets/img/lunbo2.jpg">
-			</div>
-			<div>
-				<img src="assets/img/lunbo3.jpg">
-			</div>
+<div class="nav">
+	<div class="toppic">
+		<img src="assets/img/plane.jpg" width="100%" height="100%">
+	</div>
+	<div class="name">寰宇国际</div>
+	<a href="registerView" class="registera">注册</a>
+	<a href="loginView" class="logina">登录</a>
+</div>
+<div class="bg">
+	<form action="" method="post">
+		<div class="fromCity">
+			<input type="text" name="from_city"  autocomplete="off" class="cityinput" id="start" placeholder="请输入出发地">
 		</div>
-	</div>
-	<div class="loginAndRegister layui-bg-orange">
-		<a href="registerView" class="register">注册</a> <a href="loginView"
-			class="login">登录</a>
-	</div>
-
-	<div class="searchFlight">
-		<form action="">
-			<input type="text" name="from_city" class="from_city"
-				placeholder="出发地"> <input type="text" name="to_city"
-				class="to_city" placeholder="目的地"><br> <input
-				type="date" name="start_date" class="start_date"> <select
-				class="cang">
-				<option value="">头等舱</option>
-				<option selected="selected">商务舱</option>
-				<option>经济舱</option>
-			</select><br> <input type="submit" class="submit" value="搜索">
-		</form>
-	</div>
-
-	<div class="bottom">版权所有：第五组</div>
-
+		<div class="toCity">
+			<input type="text" name="to_city"  autocomplete="off" class="cityinput" id="end" placeholder="请输入目的地">
+		</div>
+		<div class="startDate">
+			<input type="date" name="start_date"  autocomplete="off" class="cityinput" placeholder="出发日期">
+		</div>
+		<input type="submit" value="搜索" class="submit">
+	</form>
+</div>
+<script>
+	var test = new Vcity.CitySelector({
+		input : 'start'
+	});
+	var test = new Vcity.CitySelector({
+		input : 'end'
+	});
+</script>
 </body>
 </html>

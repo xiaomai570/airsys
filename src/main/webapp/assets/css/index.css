@@ -1,65 +1,139 @@
-
-img{
-	width:100%;height:auto;
+body{
+		margin:0;padding:0;
+	}
+.bg{
+	width:100%;height:800px;
+	background:url("../img/a.jpg") center no-repeat/100% 100%;
 }
-.loginAndRegister{
-	width:100%;height:30px;
+.nav{
+	width:100%;height:100px;
+	position:fixed;
+	top:0;
+	background:white;
+	box-shadow: 0 4px 4px rgba(0,0,0,.3);
 }
-.login,.register{
-	color:#0000CC;
+.toppic{
+	display:inline-block;
+	width:100px;height:100px;
+	margin-left:30%;
+}
+a{
 	float:right;
-	margin-top:5px;
-	font-weight:bold;
+	line-height:140px;
+	text-decoration:none;
+	color:#0000EE;
 }
-.register{
-	margin-right:50px;
+a:hover{
+	color:red;
 }
-.login{
-	margin-right:20px;
+.registera{
+	margin-right:30%;
 }
-.searchFlight{
-	width:1200px;height:300px;
-	margin:auto;
-	background-color: rgba(35,43,55,.6)
+.logina{
+	margin-right:30px;
 }
-.from_city,.to_city{
-	width:300px;
-	height:50px;
-	margin-top:70px;
-	font-size:20px;
-	font-weight:bold;
-}
-.from_city{
-	margin-left:250px;
-}
-.to_city{
-	margin-left:100px;
-}
-.start_date{
-	width:304px;
-	height:50px;
-	margin-left:250px;
-	border:none;
-	margin-top:50px;
-}
-.cang{
-	width:304px;height:50px;
-	margin-left:100px;
-	margin-top:50px;
-}
-.submit{
-	width:500px;
-	height:50px;
-	background:red;
-	border:none;
-	margin-top:50px;
-	margin-left:350px;
+.name{
+	display:inline-block;
+	vertical-align:40px;
+	margin-left:-20px;
 	font-size:30px;
 }
-.bottom{
-	width:100%;height:50px;
-	background:#6699CC;
-	opacity:0.7;
-	text-align:center;
+form{
+	width:60%;height:300px;
 	margin-top:100px;
+	margin-left:20%;
+	background:white;
+	background:rgba(0,0,0,.3);
+}
+.fromCity,.toCity,.startDate{
+	display:inline-block;
+	width:170px;height:70px;
+	margin-top:100px;
+	margin-left:100px;
+	font-size:20px;
+	border:2px solid white;
+}
+.cityinput{
+	width:100%;height:100%;
+	font-size:20px;
+}
+#start.cityinput,#end.cityinput{
+	font-size:20px;
+	color:white;
+}
+
+.submit{
+	display:block;
+	width:250px;height:40px;
+	font-size:18px;
+	background:white;
+	margin-top:50px;
+	margin-left:35%;
+}
+input::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 20px;
+}
+
+
+
+::-webkit-datetime-edit {
+    padding: 10px;
+}
+
+
+/*控制编辑区域的*/
+::-webkit-datetime-edit-fields-wrapper {
+    background-color: #fff;
+    display:inline-block;
+    font-size:20px;
+}
+
+
+/*控制年月日这个区域的*/
+::-webkit-datetime-edit-text {
+    color: black;
+}
+
+
+/*这是控制年月日之间的斜线或短横线的*/
+::-webkit-datetime-edit-year-field {
+    color: black;
+}
+
+
+/*控制年文字, 如2013四个字母占据的那片地方*/
+::-webkit-datetime-edit-month-field {
+    color: black;
+}
+
+
+/*控制月份*/
+::-webkit-datetime-edit-day-field {
+    color: black;
+}
+
+
+/*控制具体日子*/
+::-webkit-inner-spin-button {
+    cursor: pointer;
+    display: none;
+}
+
+
+/*这是控制上下小箭头的*/
+::-webkit-calendar-picker-indicator {
+    /*这是控制下拉小箭头的*/
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px #fff, 0 1px #eee;
+    /* background-color: rgb(165, 65, 65); */
+    background-image: -webkit-linear-gradient(top, #f5c9c9, #e6e6e6);
+    color: #666;
+    cursor: pointer;
+}
+
+::-webkit-clear-button {
+    /*控制清除按钮*/
+    cursor: pointer;
 }
