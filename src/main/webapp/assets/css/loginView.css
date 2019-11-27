@@ -4,35 +4,35 @@
 	margin-left:200px;
 }
 .a{
-	width:800px;
-	height:500px;
-	position:absolute;
-	left:0;right:0;top:0;bottom:0;
-	margin:auto;
+	width:30%;
+	height:30%;
 }
 .l1,.l2{
 	display:block;
-	margin-left:130px;
-	font-size:30px;
+	margin-left:5%;
+	margin-top:5%;
 	font-weight:bold;
 }
 .l1{
-	margin-top:100px;
+	margin-top:60%;
 }
 .c_number,.c_password{
-	width:500px;height:50px;
-	margin-left:200px;
-	font-size:25px;
+	width:75%;height:13%;
+	margin-left:5%;
+	font-size:20px;
 	border-radius:5px;
 }
 .yes,.no{
-	width:100px;height:40px;
-	font-size:18px;
-	background:#66FFFF;
+	width:13%;height:20%;
+	font-size:100%;
 	margin-top:50px;
+	border-radius:10%;
 }
 .yes{
-	margin-left:330px;
+	margin-left:20%;
+}
+.no{
+	margin-left:20%;
 }
 .yes:hover{
 	background:orange;
