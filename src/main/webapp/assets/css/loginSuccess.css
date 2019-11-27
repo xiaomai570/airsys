@@ -13,10 +13,10 @@ body{
 }
 .name{
 	display:inline-block;
-	width:70px;height:100%;
+	width:100px;height:100%;
 	line-height:40px;
 	color:#6633FF;
-	font-size:20px;
+	font-size:16px;
 	margin-left:20px; 
 }
 .cexit{
@@ -39,45 +39,55 @@ body{
 	position:absolute;
 	left:10px;
 }
-
-.l1,.l2,.l3,.l4{
-	font-size:24px;
+.searchFlight-inner{
+	width:300px;
+	height:400px;
+	border:1px solid red;
+}
+.l1,.l2,.l3{
+	font-size:18px;
 	color:red;
+	float:left;
 }
-.l1{
-	margin-left:200px;
-}
-.l2{
-	margin-left:50px;
-}
-.l3{
-	margin-left:400px;.
-}
-
 
 .from_city,.to_city,.start_date{
-	width:270px;height:50px;
-	font-size:30px;
+	width:160px;
+	height:25px;
 	border-radius:5px;
+	float:left;
+}
+.l1{
+	margin-left:20px;
+	margin-top:20px;
 }
 .from_city{
-	margin-left:45px;
-	margin-top:50px;
+	margin-left:40px;
+	margin-top:30px;
+}
+.l2{
+	margin-left:20px;
+	margin-top:40px;
 }
 .to_city{
-	margin-left:30px;
+	margin-left:40px;
+	margin-top:50px;
 }
-
-.start_date{
+.l3{
 	margin-left:20px;
-	margin-top:15px;
+	margin-top:40px;
+}
+.start_date{
+	margin-left:25px;
+	margin-top:60px;
 }
 .searchbtn{
 	display:block;
-	width:200px;height:30px;
+	width:200px;
+	height:30px;
 	font-size:20px;
-	margin-top:50px;
-	margin-left:40%;
+	float:left;
+	margin-left:50px;
+	margin-top:80px;
 	background:red;
 	color:white;
 

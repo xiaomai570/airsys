@@ -75,11 +75,11 @@
 					class="economy_price" name="economy_price">
 			</div>
 			<div class="form-group">
-				<label for="num">出发日期</label> <br><input type="text" class="start_date"
+				<label for="num">出发日期</label> <br><input type="date" class="start_date"
 					name="start_date">
 			</div>
 			<div class="form-group">
-				<label for="num">结束日期</label> <br><input type="text" class="end_date"
+				<label for="num">结束日期</label> <br><input type="date" class="end_date"
 					name="end_date">
 			</div>
 			<div class="form-group">
