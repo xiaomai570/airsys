@@ -1,0 +1,169 @@
+table th{
+	border-right:#ccc 3px solid;
+	border-top:#ccc 3px solid;
+}
+table td{
+	border:#ccc 3px solid;
+}
+.updateboss{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.insertboss{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.updateairport{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.insertairport{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	text-align:center;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.updatebranch{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.insertbranch{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+.updatecustomer{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+}
+.updateflight{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+	overflow:auto;
+	overflow-x: hidden;
+}
+.updateflight-inner{
+	width:400px;
+	height:630px;
+	color:white;
+}
+.insertflight{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+	overflow:auto;
+	overflow-x: hidden;
+}
+.insertflight-inner{
+	width:400px;
+	height:630px;
+	color:white;
+}
+.updatesale{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+}
+.updateticketorder{
+	width:400px;
+	height:500px;
+	color:white;
+	border-radius: 10%;
+	display:none;
+	background:gray;
+	margin:auto;
+	position:absolute;
+	top:0;right:0;
+	bottom:0;left:0;
+}

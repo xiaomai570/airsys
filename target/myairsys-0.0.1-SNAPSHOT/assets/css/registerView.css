@@ -1,0 +1,43 @@
+.form{
+	width:800px;height:600px;
+	position:absolute;
+	left:0;right:0;top:0;bottom:0;
+	margin:auto;
+}
+.yes,.no{
+	width:100px;height:40px;
+	font-size:18px;
+	background:#66FFFF;
+	margin-top:50px;
+}
+.yes{
+	margin-left:330px;
+}
+.yes:hover{
+	background:orange;
+}
+.no:hover{
+	background:#FF3333;
+}
+
+.l1,.l2,.l3,.l4,.l5,.l6,.l7,.l8,.l9{
+	display:inline-block;
+	margin-left:130px;
+	font-size:30px;
+	font-weight:bold;
+	margin-top:20px;
+}
+.number-a,.name,.password,.repassword,.age,.card,.phone{
+	width:300px;height:30px;
+	vertical-align:bottom;
+	font-size:25px;
+	border-radius:5px;
+}
+.sex1,.sex2{
+	width:30px;height:30px;
+	vertical-align:bottom;
+}
+.error{
+	color:red;
+	
+}
