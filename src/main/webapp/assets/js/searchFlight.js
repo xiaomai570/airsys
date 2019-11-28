@@ -31,7 +31,7 @@ window.onload=function(){
                 	var xiangqing = JSON.stringify(e[i]);
                 	console.log("所有的数据"+xiangqing);
             		var inner = "";
-            		inner+="<div style='width:800px;height:50px;margin:auto;margin-top:10px;border:1px solid red;position:relative;'>"+
+            		inner+="<div style='width:800px;height:50px;margin:auto;margin-top:10px;position:relative;'>"+
             			"<div style='width:100px;height:50px;float:left;text-align:center;font-size:22px;line-height:50px;'>"+e[i].start_airplane+"</div>"+
             			"<div style='width:100px;height:30px;float:left;left:350px;top:0;text-align:center;font-size:18px;position:absolute;line-height:30px;'>"+e[i].flight_number+"</div>"+
             			"<div style='width:600px;height:15px;float:left;left:100px;bottom:0;position:absolute;border-top:2px solid black;'></div>"+
@@ -49,77 +49,77 @@ window.onload=function(){
 function xiangqing(e){
 	var div = document.createElement("div");
 	$(div).attr("class","xiangxi");
-	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:55%;right:0;bottom:0;margin:auto";
+	div.style.cssText="width:500px;height:300px;background:#99FFCC;position:absolute;left:0;top:55%;right:0;bottom:0;margin:auto;";
 	
 	var div0 = document.createElement("div");
-	div0.innerHTML="头等舱票数";
-	div0.style.cssText="width:100%;height:20px;font-size:16px;";
+	div0.innerHTML="头等舱剩余票数";
+	div0.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:10px;";
 	
 	var div1 = document.createElement("div");
 	div1.innerHTML=e.first_class_remain_seats;
-	div1.style.cssText="width:100%;height:20px;font-size:16px;";
+	div1.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:10px;";
 	
 	var div2 = document.createElement("div");
-	div2.innerHTML="商务舱票数";
-	div2.style.cssText="width:100%;height:20px;font-size:16px;";
+	div2.innerHTML="商务舱剩余票数";
+	div2.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:40px;";
 	
 	var div3 = document.createElement("div");
 	div3.innerHTML=e.business_class_remain_seats;
-	div3.style.cssText="width:100%;height:20px;font-size:16px;";
+	div3.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:40px;";
 	
 	var div4 = document.createElement("div");
-	div4.innerHTML="经济舱票数";
-	div4.style.cssText="width:100%;height:20px;font-size:16px;";
+	div4.innerHTML="经济舱剩余票数";
+	div4.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:70px;";
 	
 	var div5 = document.createElement("div");
 	div5.innerHTML=e.economy_class_remain_seats;
-	div5.style.cssText="width:100%;height:20px;font-size:16px;";
+	div5.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:70px;";
 	
 	var div6 = document.createElement("div");
 	div6.innerHTML="头等舱价格";
-	div6.style.cssText="width:100%;height:20px;font-size:16px;";
+	div6.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:100px;";
 	
 	var div7 = document.createElement("div");
 	div7.innerHTML=e.first_price;
-	div7.style.cssText="width:100%;height:20px;font-size:16px;";
+	div7.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:100px;";
 	
 	var div8 = document.createElement("div");
 	div8.innerHTML="商务舱价格";
-	div8.style.cssText="width:100%;height:20px;font-size:16px;";
+	div8.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:130px;";
 	
 	var div9 = document.createElement("div");
 	div9.innerHTML=e.business_price;
-	div9.style.cssText="width:100%;height:20px;font-size:16px;";
+	div9.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:130px;";
 	
 	var div10 = document.createElement("div");
 	div10.innerHTML="经济舱价格";
-	div10.style.cssText="width:100%;height:20px;font-size:16px;";
+	div10.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:160px;";
 	
 	var div11 = document.createElement("div");
 	div11.innerHTML=e.economy_price;
-	div11.style.cssText="width:100%;height:20px;font-size:16px;";
+	div11.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:160px;";
 	
 	var div12 = document.createElement("div");
 	div12.innerHTML="出发时间";
-	div12.style.cssText="width:100%;height:20px;font-size:16px;";
+	div12.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:190px;";
 	
 	var div13 = document.createElement("div");
 	div13.innerHTML=time(e.departure_time);
-	div13.style.cssText="width:100%;height:20px;font-size:16px;";
+	div13.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:190px;";
 	
 	var div14 = document.createElement("div");
 	div14.innerHTML="到达时间";
-	div14.style.cssText="width:100%;height:20px;font-size:16px;";
+	div14.style.cssText="width:240px;height:20px;font-size:16px;text-align:center;position:absolute;left:0;top:220px;";
 	
 	var div15 = document.createElement("div");
 	div15.innerHTML=time(e.departure_time);
-	div15.style.cssText="width:100%;height:20px;font-size:16px;";
+	div15.style.cssText="width:240px;height:20px;font-size:20px;text-align:left;position:absolute;left:250px;top:220px;";
 	
 	var exit = document.createElement("button");
 	$(exit).attr("class","exit3");
 	$(exit).attr("onClick","exit3()");
 	$(exit).html("返回");
-	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:200px";
+	exit.style.cssText="width:100px;height:30px;font-size:20px;position:absolute;bottom:20px;left:200px";
 	
 	div.appendChild(div0);
 	div.appendChild(div1);
@@ -199,13 +199,13 @@ function buy(obj){
 	$(submit).attr("class","buy");
 	$(submit).attr("onClick","order()");
 	$(submit).html("购买");
-	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:50px";
+	submit.style.cssText="width:100px;height:30px;font-size:20px;bottom:50px;left:50px;position:absolute;";
 	
 	var exit = document.createElement("button");
 	$(exit).attr("class","exit1");
 	$(exit).attr("onClick","exit1()");
 	$(exit).html("退出");
-	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:300px";
+	exit.style.cssText="width:100px;height:30px;font-size:20px;bottom:50px;left:300px;position:absolute;";
 	/*
 	 * form.appendChild(select); form.appendChild(submit);
 	 */
@@ -261,13 +261,13 @@ function buy1(obj){
 	$(submit).attr("class","gaiqian3");
 	$(submit).attr("onClick","gaiqian3()");
 	$(submit).html("购买");
-	submit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:50px";
+	submit.style.cssText="width:100px;height:30px;font-size:20px;bottom:50px;left:50px;position:absolute;";
 	
 	var exit = document.createElement("button");
 	$(exit).attr("class","exit2");
 	$(exit).attr("onClick","exit2()");
 	$(exit).html("退出");
-	exit.style.cssText="width:100px;height:30px;font-size:20px;margin-top:20px;margin-left:300px";
+	exit.style.cssText="width:100px;height:30px;font-size:20px;bottom:50px;left:300px;position:absolute;";
 	/*
 	 * form.appendChild(select); form.appendChild(submit);
 	 */
