@@ -13,7 +13,7 @@ request.setCharacterEncoding("utf-8");
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 <script src="assets/js/registerView.js"></script>
 </head>
-<body>
+<body style="background-image: url('/airsys/assets/img/xv.jpg'); background-size: 100%, 100%; background-repeat: no-repeat">
 	<form action="register" method="post" class="form">
 		<label class="l1">用户名</label>	
 		<input type="text" class="number-a" name="c_number" placeholder="请设置用户名"><br>
