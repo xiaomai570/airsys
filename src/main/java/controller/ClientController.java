@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +80,15 @@ public class ClientController {
 		  String fromCity=request.getParameter("startPlace");
 		  String toCity=request.getParameter("endPlace");
 		  String date=request.getParameter("date");
+		  
+		  try {
+			  fromCity = new String(fromCity.getBytes("iso8859-1"), "utf-8");
+			  toCity = new String(toCity.getBytes("iso8859-1"), "utf-8");
+			  date = new String(date.getBytes("iso8859-1"), "utf-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		  
 		  System.out.println(fromCity);
 		  System.out.println(toCity);
 		  System.out.println(date);
