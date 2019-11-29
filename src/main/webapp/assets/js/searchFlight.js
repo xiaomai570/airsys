@@ -269,7 +269,7 @@ function buy1(obj){
 	
 	div.appendChild(select);
 	div.appendChild(submit);
-	div.appendChild(exit2);
+	div.appendChild(exit);
 	document.body.appendChild(div);
 }
 function exit2(){
@@ -311,6 +311,7 @@ function order(){
 }
 
 function tuipiao(obj){
+	var tr = $(obj).parents("tr");
 	var id_card = $(".hidden").attr("card");
 	var flight_id =$(obj).parents("tr").find(".flight_number").html();
 	console.log(id_card);
@@ -334,7 +335,7 @@ function tuipiao(obj){
 			
 			if(result=="ok"){
 				alert("退票成功");
-				window.location.herf=window.location.href;
+				tr.remove();
 			}else{
 				alert("退票失败")
 			}
@@ -358,7 +359,18 @@ function seeOrder(){
 		data: JSON.stringify(data),
 		success:function(e){
 			console.log(e);
-			for (var i = 0; i < e.length; i++) {			
+			for (var i = 0; i < e.length; i++) {	
+				var cang;
+				if(e[i].grade==1){
+					cang = "头等舱";
+				}
+				if(e[i].grade==2){
+					cang = "商务舱";
+				}
+				if(e[i].grade==3){
+					cang = "经济舱";
+				}
+				
 				console.log(e[i].passenger_name);
 				var tr = document.createElement("tr");
 				$(tr).attr("id",e[i].id);
@@ -366,7 +378,7 @@ function seeOrder(){
 				td += "<td class='order flight_number'>"+e[i].flight_number+"</td>";
 				td += "<td class='order'>"+e[i].passenger_name+"</td>";
 				td += "<td class='order order_date'>"+e[i].order_date+"</td>";
-				td += "<td class='order grade'>"+e[i].grade+"</td>";
+				td += "<td class='order grade'>"+cang+"</td>";
 				td += "<td class='order'>"+e[i].branch_id+"</td>";
 				td += "<td class='order'>"+e[i].sales_id+"</td>";
 				td += `<td class='order'>
