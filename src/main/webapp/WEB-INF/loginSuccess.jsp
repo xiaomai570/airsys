@@ -60,7 +60,6 @@
 					<div class="d8">乘客</div>
 					<div class="d9">订单时间</div>
 					<div class="d10">舱位</div>
-					<div class="d11">乘客类型</div>
 					<div class="d12">营业点id</div>
 					<div class="d13">营业员id</div>
 					<div class="d14">操作</div>

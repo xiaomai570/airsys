@@ -7,15 +7,10 @@ public class TicketOrder {
 	private String certification_number;
 	private String order_date;
 	private String grade;
-	private String passwnger_type;
 	private String branch_id;
 	private String sales_id;
-	public TicketOrder() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public TicketOrder(int id, String flight_number, String passenger_name, String certification_number,
-			String order_date, String grade, String passwnger_type, String branch_id, String sales_id) {
+			String order_date, String grade, String branch_id, String sales_id) {
 		super();
 		this.id = id;
 		this.flight_number = flight_number;
@@ -23,9 +18,12 @@ public class TicketOrder {
 		this.certification_number = certification_number;
 		this.order_date = order_date;
 		this.grade = grade;
-		this.passwnger_type = passwnger_type;
 		this.branch_id = branch_id;
 		this.sales_id = sales_id;
+	}
+	public TicketOrder() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -63,12 +61,6 @@ public class TicketOrder {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public String getPasswnger_type() {
-		return passwnger_type;
-	}
-	public void setPasswnger_type(String passwnger_type) {
-		this.passwnger_type = passwnger_type;
-	}
 	public String getBranch_id() {
 		return branch_id;
 	}
@@ -85,7 +77,8 @@ public class TicketOrder {
 	public String toString() {
 		return "TicketOrder [id=" + id + ", flight_number=" + flight_number + ", passenger_name=" + passenger_name
 				+ ", certification_number=" + certification_number + ", order_date=" + order_date + ", grade=" + grade
-				+ ", passwnger_type=" + passwnger_type + ", branch_id=" + branch_id + ", sales_id=" + sales_id + "]";
+				+ ", branch_id=" + branch_id + ", sales_id=" + sales_id + "]";
 	}
+	
 	
 }

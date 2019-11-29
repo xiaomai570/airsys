@@ -53,6 +53,7 @@ public class CustomerliDaoImpl implements ICustomerliDao{
 		List<TicketOrder> order = jdbcTemplate.query("select * from ticket_order where certification_number=?", 
 				new Object[]{card},
 				new BeanPropertyRowMapper<TicketOrder>(TicketOrder.class));
+		System.out.println(order);
 		return order;
 		
 	}

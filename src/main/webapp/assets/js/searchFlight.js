@@ -168,11 +168,6 @@ function buy(obj){
 	div1.style.cssText="width:100%;height:50px;font-size:30px;margin-top:50px";
 	div.appendChild(div1);
 	
-	/*
-	 * var form = document.createElement("form"); $(form).attr("action","#");
-	 * $(form).attr("method","post");
-	 */
-	
 	var select = document.createElement("select");
 	$(select).attr("name","cang");
 	$(select).attr("id",id);
@@ -372,7 +367,6 @@ function seeOrder(){
 				td += "<td class='order'>"+e[i].passenger_name+"</td>";
 				td += "<td class='order order_date'>"+e[i].order_date+"</td>";
 				td += "<td class='order grade'>"+e[i].grade+"</td>";
-				td += "<td class='order'>"+e[i].passenger_type+"</td>";
 				td += "<td class='order'>"+e[i].branch_id+"</td>";
 				td += "<td class='order'>"+e[i].sales_id+"</td>";
 				td += `<td class='order'>

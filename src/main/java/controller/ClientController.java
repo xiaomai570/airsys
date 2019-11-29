@@ -164,16 +164,18 @@ public class ClientController {
 	         String flightNumber=request.getParameter("flightNumber");
 	         String idCard=request.getParameter("idCard");
 	         String grade=request.getParameter("grade");
-	         System.out.println(flightNumber);
-	           System.out.println(idCard);
-	           System.out.println(grade);
-	            boolean flag=clientService.insertOrder(flightNumber, grade, idCard, "1000"); 
-	            if(flag==true) {
-	            	  return "ok";
-	            }else {
-	            	  return "error";
-	            }
-}
+	         System.out.println("航班号："+flightNumber);
+	         System.out.println("身份证："+idCard);
+	         System.out.println("舱位："+grade);
+	         System.out.println(idCard);
+	         System.out.println(grade);
+	         boolean flag=clientService.insertOrder(flightNumber, grade, idCard, "1000"); 
+	         if(flag==true) {
+	            return "ok";
+	         }else {
+	            return "error";
+	         }
+	  }
 
 	
 	  @RequestMapping("/selectNewFlight")

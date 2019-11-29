@@ -32,8 +32,8 @@ public class TicketOrderDaoImpl implements ITicketOrderDao{
 	}
 	@Override
 	public void update(TicketOrder ticketorder) {
-		jdbcTemplate.update("update ticket_order set flight_number=?,passenger_name=?,certification_number=?,order_date=?,grade=?,passwnger_type=?,branch_id=?,sales_id=? where id = ?",
-				new Object[]{ticketorder.getFlight_number(),ticketorder.getPassenger_name(),ticketorder.getCertification_number(),ticketorder.getOrder_date(),ticketorder.getGrade(),ticketorder.getPasswnger_type(),ticketorder.getBranch_id(),ticketorder.getSales_id(),ticketorder.getId()});
+		jdbcTemplate.update("update ticket_order set flight_number=?,passenger_name=?,certification_number=?,order_date=?,grade=?,branch_id=?,sales_id=? where id = ?",
+				new Object[]{ticketorder.getFlight_number(),ticketorder.getPassenger_name(),ticketorder.getCertification_number(),ticketorder.getOrder_date(),ticketorder.getGrade(),ticketorder.getBranch_id(),ticketorder.getSales_id(),ticketorder.getId()});
 	}
 
 }

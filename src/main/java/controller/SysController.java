@@ -396,7 +396,7 @@ public class SysController {
 		TicketOrder ticketorder = new TicketOrder(Integer.parseInt(request.getParameter("id")),
 				request.getParameter("fight_number"), request.getParameter("passenger_name"),
 				request.getParameter("certification_number"), request.getParameter("order_date"),
-				request.getParameter("grade"), request.getParameter("passwnger_type"),
+				request.getParameter("grade"),
 				request.getParameter("branch_id"), request.getParameter("sales_id"));
 		ticketorderservice.updateTicketOrder(ticketorder);
 		ModelAndView mv = new ModelAndView("scuess");
