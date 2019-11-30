@@ -20,7 +20,6 @@
 				<th>证件号码</th>
 				<th>出票日期</th>
 				<th>舱位等级</th>
-				<th>乘客类型</th>
 				<th>营业网点编号</th>
 				<th>营业员编号</th>
 				<th>操作</th>
@@ -32,7 +31,6 @@
 					<td>${ticketorder.certification_number}</td>
 					<td>${ticketorder.order_date}</td>
 					<td>${ticketorder.grade}</td>
-					<td>${ticketorder.passwnger_type}</td>
 					<td>${ticketorder.branch_id}</td>
 					<td>${ticketorder.sales_id}</td>
 					<td><a href="#" onclick="deleteticketorder(${ticketorder.id})">删除</a>
@@ -63,10 +61,6 @@
 			<div class="form-group">
 				<label for="num">舱位等级</label> <br><input type="text" class="grade"
 					name="grade">
-			</div>
-			<div class="form-group">
-				<label for="num">乘客类型</label> <br><input type="text"
-					class="passwnger_type" name="passwnger_type">
 			</div>
 			<div class="form-group">
 				<label for="num">营业网点编号</label> <br><input type="text" class="branch_id"

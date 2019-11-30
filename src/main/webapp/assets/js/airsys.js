@@ -192,7 +192,6 @@ function updateticketorder(ticketorder){
 	$(".certification_number").val(ticketorder[0].certification_number);
 	$(".order_date").val(ticketorder[0].order_date);
 	$(".grade").val(ticketorder[0].grade);
-	$(".passwnger_type").val(ticketorder[0].passwnger_type);
 	$(".branch_id").val(ticketorder[0].branch_id);
 	$(".sales_id").val(ticketorder[0].sales_id);
 }

@@ -75,9 +75,9 @@ public class TicketOrder {
 	}
 	@Override
 	public String toString() {
-		return "TicketOrder [id=" + id + ", flight_number=" + flight_number + ", passenger_name=" + passenger_name
-				+ ", certification_number=" + certification_number + ", order_date=" + order_date + ", grade=" + grade
-				+ ", branch_id=" + branch_id + ", sales_id=" + sales_id + "]";
+		return "[{'id':'" + id + "', 'flight_number':'" + flight_number + "', 'passenger_name':'" + passenger_name
+				+ "', 'certification_number':'" + certification_number + "', 'order_date':'" + order_date + "',' grade':'" + grade
+				+ "', 'branch_id':'" + branch_id + "', 'sales_id':'" + sales_id + "'}]";
 	}
 	
 	
