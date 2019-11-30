@@ -18,7 +18,6 @@
 				<th>认证号码</th>
 				<th>订票日期</th>
 				<th>机票种类</th>
-				<th>乘客身份</th>
 				<th>售票员工号</th>
 			</tr>
 			<c:forEach items="${to}" var="sale">
@@ -28,7 +27,6 @@
 					<td>${sale.certification_number}</td>
 					<td>${sale.order_date}</td>
 					<td>${sale.grade}</td>
-					<td>${sale.passwnger_type}</td>
 					<td>${sale.sales_id}</td>
 				</tr>			
 			</c:forEach>
