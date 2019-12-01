@@ -300,10 +300,11 @@ function order(){
 			console.log(e)
 			var result=e.replace(/\s/g, "");
 			
-			if(result=="ok"){
-				alert("买票成功")
-			}else{
+			if(result=="error"){
 				alert("买票失败")
+			}else{
+				console.log(result)
+				location.href="/airsys/payIndex?result="+result;
 			}
 	  }
 		
@@ -443,7 +444,16 @@ function gaiqian3(obj){
 	console.log(old_fNumber);
 	var new_fNumber = $(".gaiqian2").parents("tr").attr("id");
 	console.log(new_fNumber);
-	var old_grade = $(".gaiqian").parents("tr").children(".grade").html();
+	var oldgrade = $(".gaiqian").parents("tr").children(".grade").html();
+	var old_grade;
+	if(oldgrade=="头等舱"){
+		old_grade=1;
+	}if(oldgrade=="商务舱"){
+		old_grade=2;
+	}if(oldgrade=="经济舱"){
+		old_grade=3;
+	}
+	
 	console.log("旧舱位是："+old_grade);
 	var new_grade = $("option:selected").val();
 	console.log("新的舱位是："+new_grade);

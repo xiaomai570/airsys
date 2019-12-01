@@ -19,4 +19,5 @@ public interface ClientService {
 	      List<TicketOrder> SearchOrderId(String IdCard);
 		boolean TuiOrder(String flightNumber, String idCard);
 		boolean updateTicket(String flightNumber, String grade, String idCard, String flightNumber1, String grade1);
+		String getPrice(String flightNumber, String grade);
 }

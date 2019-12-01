@@ -83,6 +83,7 @@ dao\prototype\IBranchDao.class
 entity\sales\Branch.class
 service\impl\BossServiceImpl.class
 service\propotype\PersonService.class
+config\AlipayConfig1.class
 entity\Airport.class
 entity\sales\SearchFlight.class
 service\propotype\ICustomerliService.class

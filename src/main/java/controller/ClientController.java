@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -80,15 +79,6 @@ public class ClientController {
 		  String fromCity=request.getParameter("startPlace");
 		  String toCity=request.getParameter("endPlace");
 		  String date=request.getParameter("date");
-		  
-		  try {
-			  fromCity = new String(fromCity.getBytes("iso8859-1"), "utf-8");
-			  toCity = new String(toCity.getBytes("iso8859-1"), "utf-8");
-			  date = new String(date.getBytes("iso8859-1"), "utf-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-		  
 		  System.out.println(fromCity);
 		  System.out.println(toCity);
 		  System.out.println(date);
@@ -149,7 +139,7 @@ public class ClientController {
 	  }
 	 
 	  @RequestMapping("/insert")
-	  public String insert(HttpServletRequest request) {
+	  public ModelAndView insert(HttpServletRequest request) {
 		         String flightNumber=request.getParameter("flightNumber");
 		         String idCard=request.getParameter("idCard");
 		         String grade=request.getParameter("grade");
@@ -160,11 +150,17 @@ public class ClientController {
 		           System.out.println(idCard);
 		           System.out.println(grade);
 		           System.out.println(jobId);
-		            boolean flag=clientService.insertOrder(flightNumber, grade, idCard, jobId); 
+		           boolean flag=clientService.insertOrder(flightNumber, grade, idCard, jobId); 
+		            String price=clientService.getPrice(flightNumber,grade); 
+		            System.out.println(price);
 		            if(flag==true) {
-		            	  return "/sales/successful1";
+		            	ModelAndView mv=new ModelAndView("/sales/payIndex");
+		            	mv.addObject("price", price);
+		            	return mv;
 		            }else {
-		            	  return "/sales/fails1";
+		            	ModelAndView mv=new ModelAndView("/sales/fails1");
+		            	mv.addObject("price", price);
+		            	return mv;
 		            }
 	  }
 	  
@@ -174,19 +170,32 @@ public class ClientController {
 	         String flightNumber=request.getParameter("flightNumber");
 	         String idCard=request.getParameter("idCard");
 	         String grade=request.getParameter("grade");
-	         System.out.println("航班号："+flightNumber);
-	         System.out.println("身份证："+idCard);
-	         System.out.println("舱位："+grade);
-	         System.out.println(idCard);
-	         System.out.println(grade);
-	         boolean flag=clientService.insertOrder(flightNumber, grade, idCard, "1000"); 
-	         if(flag==true) {
-	            return "ok";
-	         }else {
-	            return "error";
-	         }
+	         System.out.println(flightNumber);
+	           System.out.println(idCard);
+	           System.out.println(grade);
+	            boolean flag=clientService.insertOrder(flightNumber, grade, idCard, "1000"); 
+	            String price=clientService.getPrice(flightNumber,grade); 
+	            System.out.println(price);
+	            System.out.println(flag);
+	            if(flag==true) {
+	            	  return price;
+	            }else {
+	            	  return "error";
+	            }
+}
+	  @RequestMapping("/alipay")
+	  public String alipay() {
+		  return "/alipay.trade.page.pay";
 	  }
-
+	  @RequestMapping("/payIndex")
+	  public ModelAndView payIndex(HttpServletRequest request) {
+		     ModelAndView mv=new ModelAndView("/payIndex");
+		     String result=request.getParameter("result");
+		     System.out.println(result);
+		     mv.addObject("result", result);	              
+		      return mv;		  
+	  }
+	 
 	
 	  @RequestMapping("/selectNewFlight")
 	  @ResponseBody

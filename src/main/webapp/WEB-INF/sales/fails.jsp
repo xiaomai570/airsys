@@ -23,7 +23,7 @@
                 span.innerHTML=i;
                 if(i==0){
                     clearInterval(t);
-                    location.href="/air_system/xiupassword"
+                    location.href="/airsys/xiupassword"
                 }
             },1000)
        }

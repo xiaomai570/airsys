@@ -26,5 +26,6 @@ public interface ClientDao {
 			List<TicketOrder> SearchOrderId(String IdCard);
 			String getGrade(String flightNumber, String idCard);
 			int delectOrder(String flightNumber, String idCard);
-			int updateTicket(String flightNumber, String idCard, String flightNumber1, String grade1);    
+			int updateTicket(String flightNumber, String idCard, String flightNumber1, String grade1);
+			String getPrice(String flightNumber, String grade1);    
 }

@@ -194,6 +194,11 @@ public class ClientServiceImpl implements ClientService {
 			     
 	             
 	}
+	@Override
+	public String getPrice(String flightNumber, String grade1) {
+		// TODO Auto-generated method stub
+		return clientDao.getPrice(flightNumber,grade1);
+	}
 	
 	
 	

@@ -25,7 +25,7 @@
         }
         .check{
                background: rgba(179,255,250,0.92);
-             margin-left:50px;
+             margin-left:10px;
              margin-top:150px;
             float:left;
             width:360px;
@@ -65,12 +65,13 @@
         }
         .bottom{
             width: 100%;
-            height: 405px;
+            height: 400px;
             border: 1px solid blue;
         }
         form{
             width: 100%;
             margin-top: 15px;
+         
 
         }
         .button {
@@ -92,6 +93,7 @@
         }
         table{
                margin-top:5px;
+               border: 1px solid blue;
         
         }
     </style>

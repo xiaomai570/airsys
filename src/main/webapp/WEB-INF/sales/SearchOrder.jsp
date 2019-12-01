@@ -14,9 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="/airsys/assets/css/bootstrap.css"  media="all">
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
-  <script src ="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"> </script>
-<script src ="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"> </script>
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+ 
 </head>
 <body>
      <table class="table table-striped">
@@ -41,10 +39,11 @@
           <td><button class="button">退票</button></td>
          </tr>
       </c:forEach>
-     </table>      
+     </table>
+<script type="text/javascript" src="/airsys/assets/js/jquery-2.2.4.min.js"></script>      
 <script type="text/javascript">
        
-        	 $('table').on('click','.button',function(){ 
+         $('table').on('click','.button',function(){ 
        var flightNumber=$(this).parent().parent("tr").children(".flightNumber").html()
        var IdCard=$(this).parent().parent("tr").children(".IdCard").html()
         
@@ -60,8 +59,10 @@
 					
 						if(result=="ok"){
 							alert("退票成功")
+						window.location.reload();
 						}else{
 							alert("退票失败")
+							window.location.reload();
 						}
 				  }
 			  

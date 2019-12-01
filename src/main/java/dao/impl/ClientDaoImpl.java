@@ -158,6 +158,30 @@ public class ClientDaoImpl implements ClientDao{
 				new Object[] {flightNumber1,grade1,flightNumber,idCard}
 				);
 	}
+
+	@Override
+	public String getPrice(String flightNumber, String grade1) {
+		// TODO Auto-generated method stub
+		int grade=Integer.parseInt(grade1);
+		if(grade==1) {
+		return  jdbcTemplate.queryForObject(
+				"select first_price from flight where flight_number=?",
+				 new Object[] {flightNumber},
+				 String.class);
+	}else if(grade==2){
+		return jdbcTemplate.queryForObject(
+				"select business_price from flight where flight_number=?",
+				new Object[] {flightNumber},
+				String.class);
+	}else {
+		return jdbcTemplate.queryForObject(
+				"select economy_price from flight where flight_number=?",
+				new Object[] {flightNumber},
+				String.class);
+	}
+	
+	
+	}
 	
 	
 	
